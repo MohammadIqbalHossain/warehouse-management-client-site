@@ -6,7 +6,8 @@ function Header() {
     const [navbarOpen, setNavbarOpen] = useState(false);
     return (
         <>
-            <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-green-500 mb-3">
+        
+            <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-[#00CBA9] mb-3">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link
@@ -50,7 +51,7 @@ function Header() {
                             <li className="nav-item">
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/"
+                                    to="/login"
                                 >
                                     <span className="ml-2">Login</span>
                                 </Link>

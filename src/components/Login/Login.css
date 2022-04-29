@@ -1,0 +1,23 @@
+.login-container{
+    background: url('../../images/wave.png') ;
+    position: absolute;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: cover;
+      
+}
+
+@media screen and (max-width: 600px){
+    .login-container{
+      background: url('../../images/wave\ \(1\).svg');
+      background-repeat: no-repeat;
+      position: relative;
+      top: -15px;
+      
+    }
+    .login-container img {
+        
+    }
+    
+}
