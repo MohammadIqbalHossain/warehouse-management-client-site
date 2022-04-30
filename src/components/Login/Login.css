@@ -1,6 +1,6 @@
 .login-container{
     background: url('../../images/wave.png') ;
-    position: absolute;
+    position: relative;
     bottom: 0;
     background-repeat: no-repeat;
     background-size: contain;

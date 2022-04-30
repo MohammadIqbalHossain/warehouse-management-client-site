@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import avatar from '../../images/avatar.svg'
 import { FaUserAlt } from 'react-icons/fa';
 import { BsFillLockFill } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { AiFillGithub } from 'react-icons/ai';
 import auth from '../../firebase.init'
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const SignUp = () => {
 
@@ -26,8 +26,15 @@ const SignUp = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     console.log(user)
+
+    const [
+        signInWithGoogle,
+        googleUser,
+        googleLoading,
+        googleError
+    ] = useSignInWithGoogle(auth);
 
     if(user){
         navigate('/')
@@ -83,11 +90,9 @@ const SignUp = () => {
 
     return (
         <div className="w-full login-container">
-            <div className="">
-
-            </div>
+        
             <form onSubmit={handleSingIn} className="flex flex-col justify-center items-center ">
-                <img src={avatar} className="w-32 " />
+                <img src={avatar} className="w-32" />
                 <h2
                     className="my-5 font-display font-bold text-3xl text-gray-700 text-center">
                     Welcome to you
@@ -132,8 +137,8 @@ const SignUp = () => {
                 </div>
                 <p className="text-sm mr-20 mt-3 text-red-300">{confirmPasswordError && confirmPasswordError}</p>
 
-                <Link to="/" className="self-center mt-4 text-gray-600 font-bold"
-                >Forgot password?</Link>
+                <Link to="/login" className="self-center mt-4 text-gray-600 font-bold"
+                >login?</Link>
 
 
                 <input
@@ -144,7 +149,9 @@ const SignUp = () => {
             </form>
 
             <div className="flex flex-col justify-center items-center">
-                <button className="flex items-center border-2 border-black p-3 rounded-lg text-lg hover:bg-[#00CBA9]">
+                <button className="flex items-center border-2 border-black p-3 rounded-lg text-lg hover:bg-[#00CBA9]"
+                onClick={() => signInWithGoogle()}
+                >
                     <FcGoogle className="mx-5 text-2xl" />
                     Continue with google
                 </button>
