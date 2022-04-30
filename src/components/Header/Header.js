@@ -1,12 +1,26 @@
+import { signOut } from "firebase/auth";
 import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { AiOutlineMenu } from 'react-icons/ai';
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 
 function Header() {
     const [navbarOpen, setNavbarOpen] = useState(false);
+    const [user] = useAuthState(auth);
+
+    const handleSignOut = () => {
+        signOut(() => {
+
+        })
+            .catch(error => {
+
+            })
+    }
+
     return (
         <>
-        
+
             <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-[#00CBA9] mb-3">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
@@ -49,12 +63,16 @@ function Header() {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/login"
-                                >
-                                    <span className="ml-2">Login</span>
-                                </Link>
+                                {user ? <button onClick={() => signOut(auth)}
+                                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                >Sign Out
+                                </button>
+                                    : <Link
+                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                        to="/login"
+                                    >
+                                        <span className="ml-2">Login</span>
+                                    </Link>}
                             </li>
                         </ul>
                     </div>

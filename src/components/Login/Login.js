@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import avatar from '../../images/avatar.svg'
 import { FaUserAlt } from 'react-icons/fa';
 import { BsFillLockFill } from 'react-icons/bs';
@@ -12,8 +12,10 @@ import { async } from '@firebase/util';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-
-    const naviagte = useNavigate();
+    
+    const navigate = useNavigate();
+    const location = useLocation();
+    
 
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -43,11 +45,14 @@ const Login = () => {
         resetError
     ] = useSendPasswordResetEmail(auth);
 
-    if (user) {
-        naviagte('/')
+
+    let from = location.state?.from?.pathname || "/";
+
+    if (user || googleUser) {
+        navigate(from, { replace: true });
     }
 
-
+    
     const getEmail = event => {
         const emailRegExpression = /\S+@\S+\.\S+/;
         const validation = emailRegExpression.test(event.target.value);
@@ -84,6 +89,9 @@ const Login = () => {
     }
 
     console.log(email);
+    
+
+  
 
 
 
