@@ -144,7 +144,7 @@ const SignUp = () => {
                 <input
                     className="py-3 px-20 bg-[#00CBA9] rounded-full font-bold uppercase text-lg my-4 transform hover:translate-y-1 transition-all duration-500"
                     type="submit"
-                    value="Login"
+                    value="Sign Up"
                 />
             </form>
 

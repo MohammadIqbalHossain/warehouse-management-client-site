@@ -62,6 +62,17 @@ function Header() {
                                     <span className="ml-2">Banner</span>
                                 </Link>
                             </li>
+
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    to="/inventory"
+                                >
+                                    <span className="ml-2">Inventory</span>
+                                </Link>
+                            </li>
+  
+
                             <li className="nav-item">
                                 {user ? <button onClick={() => signOut(auth)}
                                 className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"

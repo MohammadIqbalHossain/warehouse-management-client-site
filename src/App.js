@@ -9,6 +9,8 @@ import SignUp from './components/SignUp/SignUp';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import Inventory from './components/Inventory/Inventory';
+import BookDetails from './components/BookDetails/BookDetails';
 
 function App() {
   return (
@@ -23,6 +25,12 @@ function App() {
         }></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
+        <Route path='/inventory' element={<Inventory />}></Route>
+        <Route path='/details/:bookId' element={
+          <RequireAuth>
+            <BookDetails />
+          </RequireAuth>
+        }></Route>
 
       </Routes>
       <ToastContainer />
