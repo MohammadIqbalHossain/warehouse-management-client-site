@@ -45,11 +45,7 @@ const Login = () => {
     ] = useSendPasswordResetEmail(auth);
 
 
-    let from = location.state?.from?.pathname || "/";
 
-    if (user || googleUser) {
-        navigate(from, { replace: true });
-    }
 
 
     const getEmail = event => {
@@ -79,7 +75,23 @@ const Login = () => {
         event.preventDefault();
         signInWithEmailAndPassword(email, password);
 
-
+        fetch('http://localhost:5000/login', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({email})
+        })
+        .then(res => res.json())
+        .then(data => {
+            localStorage.setItem('accessToken', data?.accessToken); 
+           
+        })
+    }
+    
+    let from = location.state?.from?.pathname || "/";
+    if(user || googleUser){
+        navigate(from, { replace: true });
     }
 
     const handleResetPassword = async () => {
