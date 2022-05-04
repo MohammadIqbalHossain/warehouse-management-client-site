@@ -1,6 +1,7 @@
 import React from 'react';
 import useBooks from '../Hooks/UseBooks';
 import { MdDelete } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const ManageInventories = () => {
     const [books, setBooks] = useBooks()
@@ -24,9 +25,9 @@ const ManageInventories = () => {
     }
     return (
         <div>
-           {
-               books.map(book => <div>
-                   <div className="flex justify-around items-center my-10 bg-gray-900 text-white  rounded-xl hover:bg-gray-700">
+            {
+                books.map(book => <div className="w-[700px] mx-auto" key={book._id}>
+                    <div className="flex justify-around items-center my-10 bg-gray-900 text-white  rounded-xl hover:bg-gray-700">
                         <div>
                             <img src={book.picture} width="50" alt="" />
                         </div>
@@ -37,8 +38,13 @@ const ManageInventories = () => {
                             <button onClick={() => handleDeleteItem(book._id)}><MdDelete color='red' /></button>
                         </div>
                     </div>
-               </div>)
-           }
+                </div>)
+            }
+            <div className="my-10">
+                <Link to='/add-books-inventory'>
+                    <button className="btn btn-outline">Add New Item</button>
+                </Link>
+            </div>
         </div>
     );
 };

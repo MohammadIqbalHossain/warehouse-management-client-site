@@ -55,12 +55,32 @@ function Header() {
                                 </Link>
                             </li>
                             <li className="nav-item">
+                               {user ? 
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/banner"
+                                    to="/manage-inventories"
                                 >
-                                    <span className="ml-2">Banner</span>
-                                </Link>
+                                    <span className="ml-2">Manage Items</span>
+                                </Link> : ""}
+                            </li>
+
+                            <li className="nav-item">
+                               {user ? 
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    to="/add-books-inventory"
+                                >
+                                    <span className="ml-2">Add items</span>
+                                </Link> : ""}
+                            </li>
+                            <li className="nav-item">
+                               {user ? 
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    to="/my-inventories"
+                                >
+                                    <span className="ml-2">My Inventories</span>
+                                </Link> : ""}
                             </li>
 
                             <li className="nav-item">

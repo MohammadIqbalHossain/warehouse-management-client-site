@@ -12,6 +12,8 @@ import RequireAuth from './components/RequireAuth/RequireAuth';
 import Inventory from './components/Inventory/Inventory';
 import BookDetails from './components/BookDetails/BookDetails';
 import ManageInventories from './components/ManageInventories/ManageInventories';
+import AddBooksInventory from './components/AddBooksInventory/AddBooksInventory';
+import MyInventories from './components/MyInventories/MyInventories';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path='/signup' element={<SignUp />}></Route>
         <Route path='/inventory' element={<Inventory />}></Route>
         <Route path='/manage-inventories' element={<ManageInventories />}></Route>
+        <Route path='/add-books-inventory' element={<AddBooksInventory />}></Route>
+        <Route path='/my-inventories' element={<MyInventories />}></Route>
         <Route path='/details/:bookId' element={
           <RequireAuth>
             <BookDetails />

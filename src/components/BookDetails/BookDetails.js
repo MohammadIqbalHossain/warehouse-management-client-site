@@ -9,7 +9,7 @@ const BookDetails = () => {
     const [quantityCount, setQuantityCount] = useState(0);
 
     console.log(quantityCount);
-    
+
 
 
     useEffect(() => {
@@ -83,6 +83,11 @@ const BookDetails = () => {
                             <div className="flex justify-start my-5">
                                 <button onClick={handleUpdate} className="btn btn-outline text-white">Delevered</button>
 
+                            </div>
+                            <div className="flex justify-start my-5">
+                                <Link to='/manage-inventories'>
+                                    <button className="btn btn-outline text-white">Manage Inventories</button>
+                                </Link>
                             </div>
                         </div>
                     </article>

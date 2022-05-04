@@ -22,7 +22,7 @@ const Inventory = () => {
                 }
             </div>
             <Link to='/manage-inventories'>
-                <button className="btn btn-outline btn-primary">Manage Items</button>
+                <button className="btn btn-outline btn-primary">Manage Inventories</button>
             </Link>
 
         </div>
