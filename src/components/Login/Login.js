@@ -12,10 +12,9 @@ import { async } from '@firebase/util';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-    
+
     const navigate = useNavigate();
     const location = useLocation();
-    
 
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -52,7 +51,7 @@ const Login = () => {
         navigate(from, { replace: true });
     }
 
-    
+
     const getEmail = event => {
         const emailRegExpression = /\S+@\S+\.\S+/;
         const validation = emailRegExpression.test(event.target.value);
@@ -78,20 +77,21 @@ const Login = () => {
 
     const handleSingIn = (event) => {
         event.preventDefault();
-        signInWithEmailAndPassword(email, password)
+        signInWithEmailAndPassword(email, password);
+
 
     }
 
-    const handleResetPassword = async() => {
+    const handleResetPassword = async () => {
         await sendPasswordResetEmail(email);
         toast("Check your Email");
 
     }
 
     console.log(email);
-    
 
-  
+
+
 
 
 
@@ -129,7 +129,7 @@ const Login = () => {
                     </div>
                     <p className="text-sm mr-20 mt-3 text-red-300">{passwordError && passwordError}</p>
                     <button className="self-center mt-4 text-gray-600 font-bold"
-                    onClick={handleResetPassword}
+                        onClick={handleResetPassword}
                     >Forgot password?</button>
 
                     <Link to="/signup" className="self-center mt-1 text-gray-600 font-bold"
