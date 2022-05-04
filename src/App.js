@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import Inventory from './components/Inventory/Inventory';
 import BookDetails from './components/BookDetails/BookDetails';
+import ManageInventories from './components/ManageInventories/ManageInventories';
 
 function App() {
   return (
@@ -18,14 +19,10 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/banner' element={
-          <RequireAuth>
-            <Banner />
-          </RequireAuth>
-        }></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
         <Route path='/inventory' element={<Inventory />}></Route>
+        <Route path='/manage-inventories' element={<ManageInventories />}></Route>
         <Route path='/details/:bookId' element={
           <RequireAuth>
             <BookDetails />
