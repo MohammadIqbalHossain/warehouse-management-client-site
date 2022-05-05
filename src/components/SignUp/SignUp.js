@@ -94,24 +94,24 @@ const SignUp = () => {
             <form onSubmit={handleSingIn} className="flex flex-col justify-center items-center ">
                 <img src={avatar} className="w-32" />
                 <h2
-                    className="my-5 font-display font-bold text-3xl text-gray-700 text-center">
+                    className="my-5 font-display font-bold text-3xl text-gray-700 text-center text-white">
                     Welcome to you
                 </h2>
-                <div className="relative">
+                <div className="flex items-center">
                     <FaUserAlt className="absolute text-primarycolor text-xl text-gray-300" />
                     <input
                         onBlur={getEmail}
                         type="email"
                         name='email'
                         placeholder="Email"
-                        className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg"
+                        className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg rounded-lg p-2"
                         required
                     />
                 </div>
                 <p className="text-sm mr-20 mt-3 text-red-300">{emailError && emailError}</p>
 
 
-                <div className="relative mt-8">
+                <div className="flex items-center mt-8">
 
                     <BsFillLockFill className="absolute text-primarycolor text-xl text-gray-300" />
                     <input
@@ -119,12 +119,12 @@ const SignUp = () => {
                         type="password"
                         name='password'
                         placeholder="password"
-                        className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg"
+                        className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg rounded-lg p-2"
                     />
                 </div>
                 <p className="text-sm mr-20 mt-3 text-red-300">{passwordError && passwordError}</p>
 
-                <div className="relative mt-8">
+                <div className="flex items-center mt-8">
 
                     <BsFillLockFill className="absolute text-primarycolor text-xl text-gray-300" />
                     <input
@@ -132,7 +132,7 @@ const SignUp = () => {
                         type="password"
                         name='confirmPassword'
                         placeholder="password"
-                        className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg"
+                        className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg  rounded-lg p-2"
                     />
                 </div>
                 <p className="text-sm mr-20 mt-3 text-red-300">{confirmPasswordError && confirmPasswordError}</p>

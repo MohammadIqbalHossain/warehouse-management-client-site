@@ -14,6 +14,8 @@ import BookDetails from './components/BookDetails/BookDetails';
 import ManageInventories from './components/ManageInventories/ManageInventories';
 import AddBooksInventory from './components/AddBooksInventory/AddBooksInventory';
 import MyInventories from './components/MyInventories/MyInventories';
+import Blogs from './components/Blogs/Blogs';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -27,11 +29,13 @@ function App() {
         <Route path='/manage-inventories' element={<ManageInventories />}></Route>
         <Route path='/add-books-inventory' element={<AddBooksInventory />}></Route>
         <Route path='/my-inventories' element={<MyInventories />}></Route>
+        <Route path='/blogs' element={<Blogs />}></Route>
         <Route path='/details/:bookId' element={
           <RequireAuth>
             <BookDetails />
           </RequireAuth>
         }></Route>
+        <Route path='*' element={<NotFound />}></Route>
 
       </Routes>
       <ToastContainer />

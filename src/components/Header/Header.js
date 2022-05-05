@@ -21,7 +21,7 @@ function Header() {
     return (
         <>
 
-            <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-[#00CBA9] mb-3">
+            <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-[#00CBA9]">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link
@@ -52,6 +52,14 @@ function Header() {
                                     to="/"
                                 >
                                     <span className="ml-2">Home</span>
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    to="/blogs"
+                                >
+                                    <span className="ml-2">Blogs</span>
                                 </Link>
                             </li>
                             <li className="nav-item">

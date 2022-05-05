@@ -4,12 +4,9 @@ import { Link, useParams } from 'react-router-dom';
 const BookDetails = () => {
     const { bookId } = useParams();
     const [book, setBook] = useState({});
-    console.log(book.quantity);
-
+    // console.log(book);
     const [quantityCount, setQuantityCount] = useState(0);
-
-    console.log(quantityCount);
-
+    // console.log(quantityCount);
 
 
     useEffect(() => {
@@ -19,9 +16,11 @@ const BookDetails = () => {
             .then(data => setBook(data))
     }, [])
 
+
     const handleUpdate = () => {
-        const newQuantity = setQuantityCount(parseInt(book.quantity) - 1);
-        console.log(newQuantity)
+
+        const quantity = setQuantityCount(parseInt(book.quantity));
+
 
         const url = `http://localhost:5000/books/${bookId}`
         fetch(url, {
@@ -29,7 +28,32 @@ const BookDetails = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newQuantity)
+            body: JSON.stringify({ quantity })
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                alert("user updated")
+            })
+    }
+
+    const [reStock, setReStock] = useState(0);
+    const getValue = (e) => {
+        const restockValue = e.target.value;
+        setReStock(restockValue)
+    } 
+
+    const addStock = (event) => {
+        event.preventDefault();
+        const stock = (parseInt(book.quantity) + parseInt(reStock));
+
+        const url = `http://localhost:5000/books/${bookId}`
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ stock })
         })
             .then(res => res.json())
             .then(data => {
@@ -37,6 +61,7 @@ const BookDetails = () => {
                 alert("user updated")
             })
     }
+    
 
     return (
         <div>
@@ -81,7 +106,7 @@ const BookDetails = () => {
 
                             </footer>
                             <div className="flex justify-start my-5">
-                                <button onClick={handleUpdate} className="btn btn-outline text-white">Delevered</button>
+                                <button onClick={() => handleUpdate(quantityCount - 1)} className="btn btn-outline text-white">Delevered</button>
 
                             </div>
                             <div className="flex justify-start my-5">
@@ -89,6 +114,10 @@ const BookDetails = () => {
                                     <button className="btn btn-outline text-white">Manage Inventories</button>
                                 </Link>
                             </div>
+                            <form onClick={addStock} >
+                                <input onBlur={getValue} type="text" name="restock" id="" />
+                                <input type="submit" value="ReStock" />
+                            </form>
                         </div>
                     </article>
                 </div>

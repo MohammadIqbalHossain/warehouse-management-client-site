@@ -1,0 +1,16 @@
+.notFound-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+ 
+}
+.fancy-oops{
+    font-weight: 900;
+    letter-spacing: 5;
+    background-image: url(../../images/notFoundbg.jpg);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}

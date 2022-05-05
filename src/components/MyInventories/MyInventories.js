@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { MdDelete } from 'react-icons/md';
+import Spinner from '../Spinner/Spinner'
 import auth from '../../firebase.init';
 
 const MyInventories = () => {
     const [myBooks, setMyBooks] = useState([]);
     console.log(myBooks);
-    const [user] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const email = user?.email;
+   
+
     console.log(user);
     const url = `http://localhost:5000/books?email=${email}`;
     console.log(url);
     
+
+   
+
     useEffect(() => {
         fetch(url, {
             headers: {
@@ -21,8 +27,9 @@ const MyInventories = () => {
             .then(res => res.json())
             .then(data => setMyBooks(data))
     }, [user])
+    
 
-
+    
     const handleDeleteItem = id => {
         const confirmation = window.confirm("Are you sure?");
         if (confirmation) {
@@ -44,7 +51,7 @@ const MyInventories = () => {
     return (
         <div>
             {
-                myBooks.map(book => <div className="w-[700px] mx-auto" key={book._id}>
+                myBooks.map(book => <div className="md:w-[700px] md:mx-auto mx-10" key={book._id}>
                     <div className="flex justify-around items-center my-10 bg-gray-900 text-white  rounded-xl hover:bg-gray-700">
                         <div>
                             <img src={book.picture} width="50" alt="" />

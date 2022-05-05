@@ -1,23 +1,24 @@
-.login-container{
-    background: url('../../images/wave.png') ;
-    position: relative;
-    bottom: 0;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: cover;
-      
+.login-container {
+  background: url('../../images/wave.png');
+  margin-top: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: cover;
+  background-color: #111827;
+  height: 100vh;
+  color: white;
 }
 
-@media screen and (max-width: 600px){
-    .login-container{
-      background: url('../../images/wave\ \(1\).svg');
-      background-repeat: no-repeat;
-      position: relative;
-      top: -15px;
-      
-    }
-    .login-container img {
-        
-    }
-    
+@media screen and (max-width: 600px) {
+  .login-container {
+    background: url('../../images/wave\ \(1\).svg');
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: #111827;
+    /* top: -15px; */
+
+  }
+
+  .login-container img {}
+
 }

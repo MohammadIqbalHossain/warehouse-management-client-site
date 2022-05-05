@@ -4,7 +4,7 @@ import Inventory from '../Inventory/Inventory';
 
 const Home = () => {
     return (
-        <div>
+        <div className="bg-gray-800 text-white">
             <Banner />
             <Inventory />
         </div>

@@ -26,7 +26,7 @@ const ManageInventories = () => {
     return (
         <div>
             {
-                books.map(book => <div className="w-[700px] mx-auto" key={book._id}>
+                books.map(book => <div className="md:w-[700px] md:mx-auto mx-10" key={book._id}>
                     <div className="flex justify-around items-center my-10 bg-gray-900 text-white  rounded-xl hover:bg-gray-700">
                         <div>
                             <img src={book.picture} width="50" alt="" />
@@ -40,9 +40,9 @@ const ManageInventories = () => {
                     </div>
                 </div>)
             }
-            <div className="my-10">
+            <div className="">
                 <Link to='/add-books-inventory'>
-                    <button className="btn btn-outline">Add New Item</button>
+                    <button className="btn btn-outline mb-20">Add New Item</button>
                 </Link>
             </div>
         </div>

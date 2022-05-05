@@ -21,45 +21,45 @@ const AddBooksInventory = () => {
     };
 
     return (
-        <div className="w-[700px] mx-auto">
+        <div className="md:w-[700px] md:mx-auto mx-10">
             <form className="flex flex-col " onSubmit={handleSubmit(onSubmit)}>
                 <input
-                    className="border border-2 my-4"
+                    className="border border-2 my-4 rounded-lg p-5 text-lg"
                     placeholder="Name"
                     {...register("book", { required: true, maxLength: 100 })}
                 />
                 <textarea
-                    className="border border-2 my-4"
+                    className="border border-2 my-4 rounded-lg p-5 text-lg"
                     placeholder="Description"
                     {...register("des",)}
                 />
                  <input
-                    className="border border-2 my-4"
+                    className="border border-2 my-4 rounded-lg p-5 text-lg"
                     placeholder="Photo URL"
                     type="text" {...register("picture",
                         { min: 18, max: 99 })}
                 />
                 <input
-                    className="border border-2 my-4"
+                    className="border border-2 my-4 rounded-lg p-5 text-lg"
                     placeholder="Price"
                     type="number" {...register("price",
                         { min: 18, max: 99 })}
                 />
                 <input
-                    className="border border-2 my-4"
+                    className="border border-2 my-4 rounded-lg p-5 text-lg"
                     placeholder="Supplier"
                     type="text" {...register("supplier",
                         { min: 18, max: 99 })}
                 />
                 <input
-                    className="border border-2 my-4"
+                    className="border border-2 my-4 rounded-lg p-5 text-lg"
                     placeholder="Email"
                     required
-                    type="text" {...register("email",
+                    type="text" {...register("email rounded-lg p-5 text-lg",
                         { min: 18, max: 99 })}
                 />
                
-                <input className="bg-black"
+                <input className="bg-gray-900 text-white py-3 px-10 rounded-xl mb-10 mx-auto"
                     type="submit" />
             </form>
         </div>

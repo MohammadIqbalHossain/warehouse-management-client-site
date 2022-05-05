@@ -7,9 +7,9 @@ const Inventory = () => {
     const [books, setBooks] = useBooks([]);
     const slicedBooks = books.slice(0, 6);
     return (
-        <div>
+        <div className="mt-20">
             <div>
-                <h2 className="text-center text-4xl my-5 ">Books Collections</h2>
+                <h2 className="text-center my-5 text-xl">Books Collections</h2>
 
             </div>
 
@@ -22,7 +22,7 @@ const Inventory = () => {
                 }
             </div>
             <Link to='/manage-inventories'>
-                <button className="btn btn-outline btn-primary">Manage Inventories</button>
+                <button className="btn btn-outline hover:btn-primary text-white my-4">Manage Inventories</button>
             </Link>
 
         </div>

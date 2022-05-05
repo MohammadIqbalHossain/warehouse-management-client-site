@@ -16,7 +16,7 @@ const Login = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-
+    
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
@@ -28,7 +28,7 @@ const Login = () => {
         googleLoading,
         googleError
     ] = useSignInWithGoogle(auth);
-
+    
 
     const [
         signInWithEmailAndPassword,
@@ -37,7 +37,7 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     console.log(user);
-    console.log(email, password);
+    // console.log(email, password);
 
   
 
@@ -75,14 +75,16 @@ const Login = () => {
         }
     }
 
-
+   
+  
     
 
 
-    const handleSingIn = async (event) => {
+    const handleSingIn =  async(event) => {
+
         event.preventDefault();
         await signInWithEmailAndPassword(email, password);
-        
+        console.log(email);
     
         const url = `http://localhost:5000/login`
         fetch(url, {
@@ -99,6 +101,7 @@ const Login = () => {
         })
     }
 
+  
     let from = location.state?.from?.pathname || "/";
     if(user || googleUser){
         navigate(from, { replace: true });
@@ -110,7 +113,7 @@ const Login = () => {
 
     }
 
-    console.log(email);
+    // console.log(email);
 
 
 
@@ -120,42 +123,42 @@ const Login = () => {
     return (
         <div className="w-full login-container ">
             <div className="">
-                <form onSubmit={handleSingIn} className="flex flex-col justify-center items-center">
+                <form onSubmit={handleSingIn} className="flex flex-col justify-center items-center ">
                     <img src={avatar} className="w-32 " />
                     <h2
-                        className="my-5 font-display font-bold text-3xl text-gray-700 text-center">
+                        className="my-5 font-display font-bold text-3xl text-white text-center">
                         Welcome to you
                     </h2>
-                    <div className="relative">
+                    <div className="flex items-center ">
                         <FaUserAlt className="absolute text-primarycolor text-xl text-gray-300" />
                         <input
                             onBlur={getEmail}
                             type="email"
                             name='email'
                             placeholder="Email"
-                            className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg"
+                            className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg p-2 rounded-lg "
                             required
                         />
                     </div>
                     <p className="text-sm mr-20 mt-3 text-red-300">{emailError && emailError}</p>
 
 
-                    <div className="relative mt-8">
+                    <div className="flex items-center  mt-8">
 
                         <BsFillLockFill className="absolute text-primarycolor text-xl text-gray-300" />
                         <input
                             onBlur={getPassword}
                             type="password"
                             placeholder="password"
-                            className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg"
+                            className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg p-2 rounded-lg"
                         />
                     </div>
                     <p className="text-sm mr-20 mt-3 text-red-300">{passwordError && passwordError}</p>
-                    <button className="self-center mt-4 text-gray-600 font-bold"
+                    <button className="self-center mt-4 text-gray-400 font-bold"
                         onClick={handleResetPassword}
                     >Forgot password?</button>
 
-                    <Link to="/signup" className="self-center mt-1 text-gray-600 font-bold"
+                    <Link to="/signup" className="self-center mt-1 text-gray-400 font-bold"
                     >Are you new?</Link>
 
                     <input
