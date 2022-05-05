@@ -43,9 +43,9 @@ const SignUp = () => {
 
     const getEmail = event => {
         const emailRegExpression = /\S+@\S+\.\S+/;
-        const validation = emailRegExpression.test(event.target.value);
+        const validation = emailRegExpression.test(event?.target?.value);
         if (validation) {
-            setEmail(event.target.value);
+            setEmail(event?.target?.value);
         }
         else {
             setEmailError("Please give a valid email.")
@@ -55,9 +55,9 @@ const SignUp = () => {
 
     const getPassword = event => {
         const passwordRegExpression = /.{6,}/;
-        const validation = passwordRegExpression.test(event.target.value);
+        const validation = passwordRegExpression.test(event?.target?.value);
         if (validation) {
-            setPassword(event.target.value);
+            setPassword(event?.target?.value);
         }
         else {
             setPasswordError("Password too short");
@@ -66,7 +66,7 @@ const SignUp = () => {
 
 
     const handleConfirmPassword = event => {
-        const confirmPassword = event.target.value;
+        const confirmPassword = event?.target?.value;
         
         if(password === confirmPassword){
             setConfirmPassword(confirmPassword);

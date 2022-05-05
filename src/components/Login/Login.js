@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import avatar from '../../images/avatar.svg'
 import { FaUserAlt } from 'react-icons/fa';
@@ -10,6 +10,7 @@ import auth from '../../firebase.init'
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { async } from '@firebase/util';
 import { toast } from 'react-toastify';
+import Spinner from '../Spinner/Spinner';
 
 const Login = () => {
 
@@ -35,8 +36,10 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    // console.log(user);
-    // console.log(email, password);
+    console.log(user);
+    console.log(email, password);
+
+  
 
     const [
         sendPasswordResetEmail,
@@ -44,7 +47,9 @@ const Login = () => {
         resetError
     ] = useSendPasswordResetEmail(auth);
 
-
+    if(loading){
+        return <Spinner/>
+    }
 
 
 
@@ -71,11 +76,16 @@ const Login = () => {
     }
 
 
-    const handleSingIn = (event) => {
-        event.preventDefault();
-        signInWithEmailAndPassword(email, password);
+    
 
-        fetch('http://localhost:5000/login', {
+
+    const handleSingIn = async (event) => {
+        event.preventDefault();
+        await signInWithEmailAndPassword(email, password);
+        
+    
+        const url = `http://localhost:5000/login`
+        fetch(url, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -84,11 +94,11 @@ const Login = () => {
         })
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             localStorage.setItem('accessToken', data?.accessToken); 
-           
         })
     }
-    
+
     let from = location.state?.from?.pathname || "/";
     if(user || googleUser){
         navigate(from, { replace: true });
@@ -121,6 +131,7 @@ const Login = () => {
                         <input
                             onBlur={getEmail}
                             type="email"
+                            name='email'
                             placeholder="Email"
                             className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg"
                             required

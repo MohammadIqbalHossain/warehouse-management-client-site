@@ -10,7 +10,7 @@ const DisplayBooks = ({ books }) => {
     }
 
     const { book, supplier, price, quantity, des, picture, _id } = books;
-    console.log(book);
+   
 
     return (
         <div className="mx-auto h-[600px]  p-5 border-2 border-gray-200 hover:shadow-xl relative">

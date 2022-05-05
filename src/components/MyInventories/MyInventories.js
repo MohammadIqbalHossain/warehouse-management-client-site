@@ -2,19 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { MdDelete } from 'react-icons/md';
 import auth from '../../firebase.init';
-import useBooks from '../Hooks/UseBooks';
 
 const MyInventories = () => {
-    const [book, setBook ] = useState([]);
-    console.log(book);
+    const [myBooks, setMyBooks] = useState([]);
+    console.log(myBooks);
     const [user] = useAuthState(auth);
     const email = user?.email;
+    console.log(user);
     const url = `http://localhost:5000/books?email=${email}`;
+    console.log(url);
+    
     useEffect(() => {
-        console.log(url);
-        fetch(url)
+        fetch(url, {
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
-            .then(data => setBook(data))
+            .then(data => setMyBooks(data))
     }, [user])
 
 
@@ -29,8 +34,8 @@ const MyInventories = () => {
                 .then(data => {
                     console.log(data);
                     if (data.deletedCount > 0) {
-                        const rest = book.filter(book => book._id !== id);
-                        setBook(rest);
+                        const rest = myBooks.filter(book => book._id !== id);
+                        setMyBooks(rest);
                     }
                 })
         }
@@ -38,9 +43,8 @@ const MyInventories = () => {
 
     return (
         <div>
-              
             {
-                book.map(book => <div className="w-[700px] mx-auto" key={book._id}>
+                myBooks.map(book => <div className="w-[700px] mx-auto" key={book._id}>
                     <div className="flex justify-around items-center my-10 bg-gray-900 text-white  rounded-xl hover:bg-gray-700">
                         <div>
                             <img src={book.picture} width="50" alt="" />
