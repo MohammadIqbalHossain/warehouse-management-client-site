@@ -2,10 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DisplayBooks from '../DisplayBooks/DisplayBooks';
 import useBooks from '../Hooks/UseBooks';
+import Spinner from '../Spinner/Spinner';
 
 const Inventory = () => {
     const [books, setBooks] = useBooks([]);
     const slicedBooks = books.slice(0, 6);
+
+    if(!books){
+        return <Spinner/>
+    }
+    
     return (
         <div className="mt-20">
             <div>
