@@ -8,7 +8,7 @@ const BookDetails = () => {
     console.log(reload);
 
     useEffect(() => {
-        const url = `https://pure-basin-35880.herokuapp.com/book/${bookId}`;
+        const url = `  https://pure-basin-35880.herokuapp.com/book/${bookId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setBook(data))
@@ -19,7 +19,7 @@ const BookDetails = () => {
 
 
     const handleUpdate = () => {
-        const url = `https://pure-basin-35880.herokuapp.com/books/${bookId}`
+        const url = `  https://pure-basin-35880.herokuapp.com/books/${bookId}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -45,7 +45,7 @@ const BookDetails = () => {
         event.preventDefault();
         const stock = (parseInt(book.quantity) + parseInt(reStock));
 
-        const url = `https://pure-basin-35880.herokuapp.com/books/${bookId}`
+        const url = `  https://pure-basin-35880.herokuapp.com/books/${bookId}`
         fetch(url, {
             method: "PUT",
             headers: {

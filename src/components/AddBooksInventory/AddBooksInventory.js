@@ -1,12 +1,13 @@
 import { jsonEval } from '@firebase/util';
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 
 const AddBooksInventory = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data)
-        const url = `https://pure-basin-35880.herokuapp.com/book`;
+        const url = `  https://pure-basin-35880.herokuapp.com/book`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -17,6 +18,7 @@ const AddBooksInventory = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result)
+                toast("Successfully added")
             })
     };
 
@@ -54,8 +56,7 @@ const AddBooksInventory = () => {
                 <input
                     className="border border-2 my-4 rounded-lg p-5 text-lg"
                     placeholder="Email"
-                    required
-                    type="text" {...register("email rounded-lg p-5 text-lg",
+                    type="text" {...register("email",
                         { min: 18, max: 99 })}
                 />
 

@@ -10,7 +10,7 @@ const MyInventories = () => {
     const [user, loading] = useAuthState(auth);
     const email = user?.email;
 
-
+   
 
     console.log(user);
     const url = `https://pure-basin-35880.herokuapp.com/books?email=${email}`;
@@ -34,7 +34,8 @@ const MyInventories = () => {
     const handleDeleteItem = id => {
         const confirmation = window.confirm("Are you sure?");
         if (confirmation) {
-            const url = `https://pure-basin-35880.herokuapp.com/book/${id}`
+            const url = `  https://pure-basin-35880.herokuapp.com/book/${id}`
+            console.log(url)
             fetch(url, {
                 method: "DELETE"
             })

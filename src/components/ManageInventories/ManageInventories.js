@@ -9,7 +9,7 @@ const ManageInventories = () => {
     const handleDeleteItem = id => {
         const confirmation = window.confirm("Are you sure?");
         if (confirmation) {
-            const url = `https://pure-basin-35880.herokuapp.com/book/${id}`
+            const url = `  https://pure-basin-35880.herokuapp.com/book/${id}`
             fetch(url, {
                 method: "DELETE"
             })

@@ -3,6 +3,7 @@ import Intructions from '../Intructions/Intructions';
 import Banner from '../Banner/Banner';
 import Inventory from '../Inventory/Inventory';
 import Works from '../works/Works';
+import Footer from '../Footer/Footer';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Inventory />
             <Works />
             <Intructions />
+           
         </div>
     );
 };
