@@ -6,18 +6,18 @@ const AddBooksInventory = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data)
-        const url = `http://localhost:5000/book`;
+        const url = `https://pure-basin-35880.herokuapp.com/book`;
         fetch(url, {
-            method: 'POST', 
+            method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(result => {
-            console.log(result)
-        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+            })
     };
 
     return (
@@ -33,7 +33,7 @@ const AddBooksInventory = () => {
                     placeholder="Description"
                     {...register("des",)}
                 />
-                 <input
+                <input
                     className="border border-2 my-4 rounded-lg p-5 text-lg"
                     placeholder="Photo URL"
                     type="text" {...register("picture",
@@ -58,7 +58,7 @@ const AddBooksInventory = () => {
                     type="text" {...register("email rounded-lg p-5 text-lg",
                         { min: 18, max: 99 })}
                 />
-               
+
                 <input className="bg-gray-900 text-white py-3 px-10 rounded-xl mb-10 mx-auto"
                     type="submit" />
             </form>

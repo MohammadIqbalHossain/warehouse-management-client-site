@@ -9,14 +9,12 @@ const MyInventories = () => {
     console.log(myBooks);
     const [user, loading] = useAuthState(auth);
     const email = user?.email;
-   
+
+
 
     console.log(user);
-    const url = `http://localhost:5000/books?email=${email}`;
+    const url = `https://pure-basin-35880.herokuapp.com/books?email=${email}`;
     console.log(url);
-    
-
-   
 
     useEffect(() => {
         fetch(url, {
@@ -27,13 +25,16 @@ const MyInventories = () => {
             .then(res => res.json())
             .then(data => setMyBooks(data))
     }, [user])
-    
 
-    
+    // if(loading){
+    //     return <Spinner />
+    // }
+
+
     const handleDeleteItem = id => {
         const confirmation = window.confirm("Are you sure?");
         if (confirmation) {
-            const url = `http://localhost:5000/book/${id}`
+            const url = `https://pure-basin-35880.herokuapp.com/book/${id}`
             fetch(url, {
                 method: "DELETE"
             })
@@ -47,6 +48,10 @@ const MyInventories = () => {
                 })
         }
     }
+
+    // if(myBooks.length < 0){
+    //     return "Please add your Item"
+    // }
 
     return (
         <div>

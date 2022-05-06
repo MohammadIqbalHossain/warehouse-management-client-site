@@ -104,7 +104,7 @@ const SignUp = () => {
                         type="email"
                         name='email'
                         placeholder="Email"
-                        className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg rounded-lg p-2"
+                        className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg rounded-lg p-2 text-gray-700"
                         required
                     />
                 </div>
@@ -119,7 +119,7 @@ const SignUp = () => {
                         type="password"
                         name='password'
                         placeholder="password"
-                        className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg rounded-lg p-2"
+                        className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg rounded-lg p-2 text-gray-700"
                     />
                 </div>
                 <p className="text-sm mr-20 mt-3 text-red-300">{passwordError && passwordError}</p>
@@ -132,7 +132,7 @@ const SignUp = () => {
                         type="password"
                         name='confirmPassword'
                         placeholder="password"
-                        className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg  rounded-lg p-2"
+                        className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg  rounded-lg p-2 text-gray-700"
                     />
                 </div>
                 <p className="text-sm mr-20 mt-3 text-red-300">{confirmPasswordError && confirmPasswordError}</p>

@@ -16,7 +16,7 @@ const Login = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    
+
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
@@ -28,7 +28,7 @@ const Login = () => {
         googleLoading,
         googleError
     ] = useSignInWithGoogle(auth);
-    
+
 
     const [
         signInWithEmailAndPassword,
@@ -36,10 +36,11 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    console.log(user);
+    // console.log(user);
     // console.log(email, password);
+    console.log(error);
 
-  
+
 
     const [
         sendPasswordResetEmail,
@@ -47,8 +48,8 @@ const Login = () => {
         resetError
     ] = useSendPasswordResetEmail(auth);
 
-    if(loading){
-        return <Spinner/>
+    if (loading) {
+        return <Spinner />
     }
 
 
@@ -75,35 +76,34 @@ const Login = () => {
         }
     }
 
-   
-  
-    
 
 
-    const handleSingIn =  async(event) => {
 
+
+
+    const handleSingIn = async (event) => {
         event.preventDefault();
         await signInWithEmailAndPassword(email, password);
         console.log(email);
-    
-        const url = `http://localhost:5000/login`
+
+        const url = `https://pure-basin-35880.herokuapp.com/login`
         fetch(url, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({email})
+            body: JSON.stringify({ email })
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            localStorage.setItem('accessToken', data?.accessToken); 
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                localStorage.setItem('accessToken', data?.accessToken);
+            })
     }
 
-  
+
     let from = location.state?.from?.pathname || "/";
-    if(user || googleUser){
+    if (user || googleUser) {
         navigate(from, { replace: true });
     }
 
@@ -136,7 +136,7 @@ const Login = () => {
                             type="email"
                             name='email'
                             placeholder="Email"
-                            className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg p-2 rounded-lg "
+                            className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg p-2 rounded-lg text-gray-700"
                             required
                         />
                     </div>
@@ -150,7 +150,7 @@ const Login = () => {
                             onBlur={getPassword}
                             type="password"
                             placeholder="password"
-                            className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg p-2 rounded-lg"
+                            className="pl-8 border-b-2 font-display focus:outline-none focus:border-primarycolor transition-all duration-500 capitalize text-lg p-2 rounded-lg text-gray-700"
                         />
                     </div>
                     <p className="text-sm mr-20 mt-3 text-red-300">{passwordError && passwordError}</p>

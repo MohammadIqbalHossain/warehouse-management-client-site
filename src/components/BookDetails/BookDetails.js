@@ -4,25 +4,22 @@ import { Link, useParams } from 'react-router-dom';
 const BookDetails = () => {
     const { bookId } = useParams();
     const [book, setBook] = useState({});
-    // console.log(book);
-    const [quantityCount, setQuantityCount] = useState(0);
-    // console.log(quantityCount);
-
+    const [reload, setReload] = useState(true);
+    console.log(reload);
 
     useEffect(() => {
-        const url = `http://localhost:5000/book/${bookId}`;
+        const url = `https://pure-basin-35880.herokuapp.com/book/${bookId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setBook(data))
-    }, [])
+    }, [reload])
+
+    const quantity = parseInt(book.quantity) - 1;
+    console.log(quantity);
 
 
     const handleUpdate = () => {
-
-        const quantity = setQuantityCount(parseInt(book.quantity));
-
-
-        const url = `http://localhost:5000/books/${bookId}`
+        const url = `https://pure-basin-35880.herokuapp.com/books/${bookId}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -32,7 +29,8 @@ const BookDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
+                console.log(data)
+                setReload(!reload)
                 alert("user updated")
             })
     }
@@ -41,13 +39,13 @@ const BookDetails = () => {
     const getValue = (e) => {
         const restockValue = e.target.value;
         setReStock(restockValue)
-    } 
+    }
 
     const addStock = (event) => {
         event.preventDefault();
         const stock = (parseInt(book.quantity) + parseInt(reStock));
 
-        const url = `http://localhost:5000/books/${bookId}`
+        const url = `https://pure-basin-35880.herokuapp.com/books/${bookId}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -61,7 +59,9 @@ const BookDetails = () => {
                 alert("user updated")
             })
     }
-    
+
+
+
 
     return (
         <div>
@@ -83,7 +83,7 @@ const BookDetails = () => {
                                             <Link className="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out" to="#0">For whole sale</Link>
                                         </li>
                                         <li className="m-1">
-                                            <Link className="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out" to="#0">Quantity: {quantityCount}</Link>
+                                            <Link className="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out" to="#0">Quantity: {quantity}</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -106,7 +106,7 @@ const BookDetails = () => {
 
                             </footer>
                             <div className="flex justify-start my-5">
-                                <button onClick={() => handleUpdate(quantityCount - 1)} className="btn btn-outline text-white">Delevered</button>
+                                <button onClick={handleUpdate} className="btn btn-outline text-white">Delevered</button>
 
                             </div>
                             <div className="flex justify-start my-5">

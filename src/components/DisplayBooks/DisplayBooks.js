@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 const DisplayBooks = ({ books }) => {
-    console.log(books);
+    // console.log(books);
     const navigate = useNavigate();
 
     const handleNavigate = (_id) => {
