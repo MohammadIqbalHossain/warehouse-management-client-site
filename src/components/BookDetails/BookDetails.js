@@ -17,7 +17,7 @@ const BookDetails = () => {
             .then(data => setBook(data))
     }, [bookId])
 
-    
+
     const handleUpdate = () => {
         const url = `https://pure-basin-35880.herokuapp.com/books/${bookId}`
         fetch(url, {

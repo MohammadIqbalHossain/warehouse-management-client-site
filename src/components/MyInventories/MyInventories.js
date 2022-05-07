@@ -10,11 +10,11 @@ const MyInventories = () => {
     const [user, loading] = useAuthState(auth);
     const email = user?.email;
 
-   
+
 
     console.log(user);
     const url = `https://pure-basin-35880.herokuapp.com/books?email=${email}`;
-    // const url = `http://localhost:5000/books?email=${email}`
+    // const url = `https://pure-basin-35880.herokuapp.com/books?email=${email}`
     console.log(url);
 
     useEffect(() => {
