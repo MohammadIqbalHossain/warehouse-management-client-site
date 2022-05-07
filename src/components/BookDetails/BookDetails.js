@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify'
 import { async } from '@firebase/util';
+import avatar from '../../images/avatar.svg'
 
 const BookDetails = () => {
     const { bookId } = useParams();
@@ -28,24 +29,24 @@ const BookDetails = () => {
         if (book.quantity <= 0) {
             toast("Sold");
         }
-        else{
-            setNewCount({...book, quantity: book.quantity = book.quantity - 1})
+        else {
+            setNewCount({ ...book, quantity: book.quantity = book.quantity - 1 })
         }
     }
-    
+
     const handleStockUpdate = (event) => {
         event.preventDefault();
         const newQuantity = event.target.restock.value;
-        const quantity = {quantity: newQuantity};
-        setNewCount({...book, quantity: book.quantity + parseInt(newQuantity)});
-        if(newQuantity < 0){
+        const quantity = { quantity: newQuantity };
+        setNewCount({ ...book, quantity: book.quantity + parseInt(newQuantity) });
+        if (newQuantity < 0) {
             toast("Please enter a vlaid number")
         }
-        else{
-            axios.put(`https://pure-basin-35880.herokuapp.com/stock/${bookId}`, {quantity})
-            
+        else {
+            axios.put(`https://pure-basin-35880.herokuapp.com/stock/${bookId}`, { quantity })
+
         }
-            
+
     }
 
 
@@ -84,7 +85,7 @@ const BookDetails = () => {
 
                                 {/* this is for updating supplier image */}
                                 <a href="https://web.facebook.com/iqbal.abdullah.927543/">
-                                    <img className="rounded-full flex-shrink-0 mr-4" src={book.picture} width="40" height="5" alt="Author 04" />
+                                    <img className="rounded-full flex-shrink-0 mr-4" src={avatar} width="40" height="5" alt="Author 04" />
                                 </a>
                                 <div>
                                     <p className="font-medium text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out inline">Supplier:  {book.supplier}</p>
@@ -94,18 +95,27 @@ const BookDetails = () => {
 
                             </footer>
                             <div className="flex justify-start my-5">
-                                <button onClick={() =>handleQuantity(book._id)} className="btn btn-outline text-white">Delevered</button>
+                                <button onClick={() => handleQuantity(book._id)} className="btn btn-outline text-white px-16">Delevered</button>
 
                             </div>
                             <div className="flex justify-start my-5">
                                 <Link to='/manage-inventories'>
-                                    <button className="btn btn-outline text-white">Manage Inventories</button>
+                                    <button className="btn btn-outline px-6 text-white ">Manage Inventories</button>
                                 </Link>
                             </div>
 
                             <form onSubmit={handleStockUpdate}>
-                                <input type="text" name="restock" id="" />
-                                <input type="submit" value="ReStock" />
+                                <input
+                                    className="p-2 block rounded-lg px-1"
+                                    placeholder="Add books"
+                                    type="text"
+                                    name="restock"
+                                    id="" />
+
+                                <input
+                                    className="block btn btn-outline my-3 text-white px-16"
+                                    type="submit"
+                                    value="ReStock" />
                             </form>
                         </div>
                     </article>

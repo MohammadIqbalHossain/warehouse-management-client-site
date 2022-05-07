@@ -23,7 +23,7 @@ const AddBooksInventory = () => {
     };
 
     return (
-        <div className="md:w-[700px] md:mx-auto mx-10">
+        <div className="md:w-[700px] md:mx-auto mx-10 ">
             <form className="flex flex-col " onSubmit={handleSubmit(onSubmit)}>
                 <input
                     className="border border-2 my-4 rounded-lg p-5 text-lg"
@@ -45,7 +45,7 @@ const AddBooksInventory = () => {
                     className="border border-2 my-4 rounded-lg p-5 text-lg"
                     placeholder="Price"
                     type="number" {...register("price",
-                        { min: 1, max: 99 })}
+                        { min: 1, max: 900000 })}
                 />
                 <input
                     className="border border-2 my-4 rounded-lg p-5 text-lg"

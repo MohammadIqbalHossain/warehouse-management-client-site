@@ -94,7 +94,7 @@ const SignUp = () => {
             <form onSubmit={handleSingIn} className="flex flex-col justify-center items-center ">
                 <img src={avatar} className="w-32" />
                 <h2
-                    className="my-5 font-display font-bold text-3xl text-gray-700 text-center text-white">
+                    className="my-3 font-display font-bold text-3xl text-center text-white">
                     Welcome to you
                 </h2>
                 <div className="flex items-center">
@@ -137,12 +137,12 @@ const SignUp = () => {
                 </div>
                 <p className="text-sm mr-20 mt-3 text-red-300">{confirmPasswordError && confirmPasswordError}</p>
 
-                <Link to="/login" className="self-center mt-4 text-gray-600 font-bold"
+                <Link to="/login" className="self-center mt-1 text-gray-600 font-bold"
                 >login?</Link>
 
 
                 <input
-                    className="py-3 px-20 bg-[#00CBA9] rounded-full font-bold uppercase text-lg my-4 transform hover:translate-y-1 transition-all duration-500"
+                    className="py-3 px-20 bg-[#00CBA9] rounded-full font-bold uppercase text-lg my-3 transform hover:translate-y-1 transition-all duration-500"
                     type="submit"
                     value="Sign Up"
                 />
@@ -156,10 +156,10 @@ const SignUp = () => {
                     Continue with google
                 </button>
 
-                <button className="flex items-center border-2 border-black p-3 rounded-lg text-lg hover:bg-[#00CBA9] my-5">
+                {/* <button className="flex items-center border-2 border-black p-3 rounded-lg text-lg hover:bg-[#00CBA9] my-5">
                     <AiFillGithub className="mx-5 text-2xl" />
                     Continue with github
-                </button>
+                </button> */}
             </div>
 
         </div>

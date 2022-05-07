@@ -15,7 +15,7 @@ const DisplayBooks = ({ books }) => {
    
 
     return (
-        <div className="mx-auto h-[600px]  p-5 border-2 border-gray-200 hover:shadow-xl relative">
+        <div className="mx-auto h-[650px]  p-5 border-2 border-gray-200 hover:shadow-xl relative">
             <img className="w-[200px] h-[300px] inline-block" src={picture} alt="" />
             <h4 className="text-left my-2">{book.slice(0, 30) + "..."}</h4>
             <p className="text-left my-2">descriptions: {des.slice(0, 70) + "..."}</p>
@@ -25,7 +25,7 @@ const DisplayBooks = ({ books }) => {
 
             <button
                 onClick={() => handleNavigate(_id)}
-                className="btn btn-outline btn-success absolute bottom-2  block mx-auto">
+                className="btn btn-outline btn-success absolute bottom-2 my-5 block mx-auto">
                 Update
             </button>
         </div>

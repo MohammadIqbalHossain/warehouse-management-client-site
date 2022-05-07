@@ -176,10 +176,10 @@ const Login = () => {
                         Continue with google
                     </button>
 
-                    <button className="flex items-center border-2 border-black p-3 rounded-lg text-lg hover:bg-[#00CBA9] my-5">
+                    {/* <button className="flex items-center border-2 border-black p-3 rounded-lg text-lg hover:bg-[#00CBA9] my-5">
                         <AiFillGithub className="mx-5 text-2xl" />
                         Continue with github
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </div>

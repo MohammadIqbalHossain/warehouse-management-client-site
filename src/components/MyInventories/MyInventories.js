@@ -31,10 +31,7 @@ const MyInventories = () => {
 
     }, [user])
 
-    // if(loading){
-    //     return <Spinner />
-    // }
-
+   
 
     const handleDeleteItem = id => {
         const confirmation = window.confirm("Are you sure?");
@@ -55,10 +52,7 @@ const MyInventories = () => {
         }
     }
 
-    // if(myBooks.length < 0){
-    //     return "Please add your Item"
-    // }
-
+   
     return (
         <div>
             {

@@ -15,7 +15,7 @@ const Inventory = () => {
     }
     
     return (
-        <div className="mt-20">
+        <div className="mt-50">
             <div>
                 <h2 className="text-center my-5 text-xl">Books Collections</h2>
             </div>
