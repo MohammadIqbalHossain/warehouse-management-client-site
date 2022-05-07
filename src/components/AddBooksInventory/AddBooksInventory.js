@@ -45,7 +45,7 @@ const AddBooksInventory = () => {
                     className="border border-2 my-4 rounded-lg p-5 text-lg"
                     placeholder="Price"
                     type="number" {...register("price",
-                        { min: 18, max: 99 })}
+                        { min: 1, max: 99 })}
                 />
                 <input
                     className="border border-2 my-4 rounded-lg p-5 text-lg"

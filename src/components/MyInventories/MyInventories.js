@@ -14,16 +14,21 @@ const MyInventories = () => {
 
     console.log(user);
     const url = `https://pure-basin-35880.herokuapp.com/books?email=${email}`;
+    // const url = `http://localhost:5000/books?email=${email}`
     console.log(url);
 
     useEffect(() => {
         fetch(url, {
             headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
+                authorization: `bearer ${localStorage.getItem("accessToken")}`
             }
         })
             .then(res => res.json())
-            .then(data => setMyBooks(data))
+            .then(data => {
+                console.log(data);
+                setMyBooks(data)
+            })
+
     }, [user])
 
     // if(loading){
@@ -34,7 +39,7 @@ const MyInventories = () => {
     const handleDeleteItem = id => {
         const confirmation = window.confirm("Are you sure?");
         if (confirmation) {
-            const url = `  https://pure-basin-35880.herokuapp.com/book/${id}`
+            const url = `https://pure-basin-35880.herokuapp.com/book/${id}`
             console.log(url)
             fetch(url, {
                 method: "DELETE"

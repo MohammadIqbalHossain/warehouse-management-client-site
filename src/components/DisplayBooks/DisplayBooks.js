@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
+import Spinner from '../Spinner/Spinner';
 
 const DisplayBooks = ({ books }) => {
     // console.log(books);
@@ -10,6 +11,7 @@ const DisplayBooks = ({ books }) => {
     }
 
     const { book, supplier, price, quantity, des, picture, _id } = books;
+   
    
 
     return (
