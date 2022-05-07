@@ -4,18 +4,19 @@ import { Link, useParams } from 'react-router-dom';
 const BookDetails = () => {
     const { bookId } = useParams();
     const [book, setBook] = useState({});
-    const [reload, setReload] = useState(true);
-    console.log(reload);
+    const [quantity, setNewQuantity] = useState(book.quantity);
+    const newQuantity = parseInt(book.quantity) - 1;
+    const updatedQuantity = { newQuantity }
+    console.log(updatedQuantity)
 
     useEffect(() => {
         const url = `  https://pure-basin-35880.herokuapp.com/book/${bookId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setBook(data))
-    }, [reload])
+    }, [bookId])
 
-    const quantity = parseInt(book.quantity) - 1;
-    console.log(quantity);
+    
 
 
     const handleUpdate = () => {
@@ -25,12 +26,12 @@ const BookDetails = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ quantity })
+            body: JSON.stringify({ updatedQuantity })
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                setReload(!reload)
+                setNewQuantity(quantity);
                 alert("user updated")
             })
     }
@@ -56,6 +57,7 @@ const BookDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                setNewQuantity(updatedQuantity)
                 alert("user updated")
             })
     }
