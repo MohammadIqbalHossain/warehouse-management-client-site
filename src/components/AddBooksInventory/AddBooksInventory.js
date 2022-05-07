@@ -7,7 +7,7 @@ const AddBooksInventory = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data)
-        const url = `  https://pure-basin-35880.herokuapp.com/book`;
+        const url = `https://pure-basin-35880.herokuapp.com/book`;
         fetch(url, {
             method: 'POST',
             headers: {

@@ -5,7 +5,7 @@ const useBooks = () => {
    
 
     useEffect(() => {
-        fetch('  https://pure-basin-35880.herokuapp.com/book')
+        fetch('https://pure-basin-35880.herokuapp.com/book')
             .then(res => res.json())
             .then(data => setBooks(data))
            

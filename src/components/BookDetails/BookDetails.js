@@ -45,7 +45,7 @@ const BookDetails = () => {
         event.preventDefault();
         const stock = (parseInt(book.quantity) + parseInt(reStock));
 
-        const url = `  https://pure-basin-35880.herokuapp.com/books/${bookId}`
+        const url = `https://pure-basin-35880.herokuapp.com/books/${bookId}`
         fetch(url, {
             method: "PUT",
             headers: {
