@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify'
+import { async } from '@firebase/util';
 
 const BookDetails = () => {
     const { bookId } = useParams();
+    console.log(bookId)
     const [book, setBook] = useState({});
+    console.log(book.quantity)
 
-    const [quantity, setNewQuantity] = useState(book.quantity);
-    const newQuantity = parseInt(book.quantity) - 1;
-    const updatedQuantity = newQuantity
-    console.log(updatedQuantity)
+    const [count, setNewCount] = useState({})
+    console.log(count);
+
 
     useEffect(() => {
         const url = `https://pure-basin-35880.herokuapp.com/book/${bookId}`;
@@ -18,47 +22,30 @@ const BookDetails = () => {
     }, [bookId])
 
 
-    const handleUpdate = () => {
-        const url = `https://pure-basin-35880.herokuapp.com/books/${bookId}`
-        fetch(url, {
-            method: "PUT",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ quantity })
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                setNewQuantity(updatedQuantity);
-                alert("user updated")
-            })
+    const handleQuantity = (id) => {
+        console.log("clicked");
+        axios.put(`https://pure-basin-35880.herokuapp.com/book/update/${id}`)
+        if (book.quantity <= 0) {
+            toast("Sold");
+        }
+        else{
+            setNewCount({...book, quantity: book.quantity = book.quantity - 1})
+        }
     }
-
-    const [reStock, setReStock] = useState(0);
-    const getValue = (e) => {
-        const restockValue = e.target.value;
-        setReStock(restockValue)
-    }
-
-    const addStock = (event) => {
+    
+    const handleStockUpdate = (event) => {
         event.preventDefault();
-        const stock = (parseInt(book.quantity) + parseInt(reStock));
-
-        const url = `https://pure-basin-35880.herokuapp.com/books/${bookId}`
-        fetch(url, {
-            method: "PUT",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ stock })
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                setNewQuantity(updatedQuantity)
-                alert("user updated")
-            })
+        const newQuantity = event.target.restock.value;
+        const quantity = {quantity: newQuantity};
+        setNewCount({...book, quantity: book.quantity + parseInt(newQuantity)});
+        if(newQuantity < 0){
+            toast("Please enter a vlaid number")
+        }
+        else{
+            axios.put(`https://pure-basin-35880.herokuapp.com/stock/${bookId}`, {quantity})
+            
+        }
+            
     }
 
 
@@ -84,7 +71,7 @@ const BookDetails = () => {
                                             <Link className="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out" to="#0">For whole sale</Link>
                                         </li>
                                         <li className="m-1">
-                                            <Link className="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out" to="#0">Quantity: {quantity}</Link>
+                                            <Link className="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out" to="#0">Quantity: {book.quantity}</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -107,7 +94,7 @@ const BookDetails = () => {
 
                             </footer>
                             <div className="flex justify-start my-5">
-                                <button onClick={handleUpdate} className="btn btn-outline text-white">Delevered</button>
+                                <button onClick={() =>handleQuantity(book._id)} className="btn btn-outline text-white">Delevered</button>
 
                             </div>
                             <div className="flex justify-start my-5">
@@ -115,8 +102,9 @@ const BookDetails = () => {
                                     <button className="btn btn-outline text-white">Manage Inventories</button>
                                 </Link>
                             </div>
-                            <form onClick={addStock} >
-                                <input onBlur={getValue} type="text" name="restock" id="" />
+
+                            <form onSubmit={handleStockUpdate}>
+                                <input type="text" name="restock" id="" />
                                 <input type="submit" value="ReStock" />
                             </form>
                         </div>
