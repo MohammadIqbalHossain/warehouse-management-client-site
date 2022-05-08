@@ -38,16 +38,18 @@ const BookDetails = () => {
         event.preventDefault();
         const newQuantity = event.target.restock.value;
         const quantity = { quantity: newQuantity };
-        setNewCount({ ...book, quantity: book.quantity + parseInt(newQuantity) });
+        setNewCount({ ...book, quantity: book.quantity = book.quantity + parseInt(newQuantity) });
         if (newQuantity < 0) {
             toast("Please enter a vlaid number")
         }
         else {
-            axios.put(`https://pure-basin-35880.herokuapp.com/stock/${book._id}`, { quantity })
+            axios.put(`https://pure-basin-35880.herokuapp.com/stock/${bookId}`, { quantity })
 
         }
 
     }
+
+
 
 
 
