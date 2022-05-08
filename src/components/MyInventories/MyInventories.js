@@ -7,11 +7,10 @@ import auth from '../../firebase.init';
 const MyInventories = () => {
     const [myBooks, setMyBooks] = useState([]);
     console.log(myBooks);
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const email = user?.email;
-
-
-
+    
+   
     console.log(user);
     const url = `https://pure-basin-35880.herokuapp.com/books?email=${email}`;
     // const url = `https://pure-basin-35880.herokuapp.com/books?email=${email}`
@@ -31,6 +30,9 @@ const MyInventories = () => {
 
     }, [user])
 
+    if(!myBooks.length < 0){
+        return <Spinner />
+    }
    
 
     const handleDeleteItem = id => {

@@ -43,7 +43,7 @@ const BookDetails = () => {
             toast("Please enter a vlaid number")
         }
         else {
-            axios.put(`https://pure-basin-35880.herokuapp.com/stock/${bookId}`, { quantity })
+            axios.put(`https://pure-basin-35880.herokuapp.com/stock/${book._id}`, { quantity })
 
         }
 
