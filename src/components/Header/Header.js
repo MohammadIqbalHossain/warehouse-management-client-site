@@ -63,32 +63,32 @@ function Header() {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                               {user ? 
-                                <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/manage-inventories"
-                                >
-                                    <span className="ml-2">Manage Items</span>
-                                </Link> : ""}
+                                {user ?
+                                    <Link
+                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                        to="/manage-inventories"
+                                    >
+                                        <span className="ml-2">Manage Items</span>
+                                    </Link> : ""}
                             </li>
 
                             <li className="nav-item">
-                               {user ? 
-                                <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/add-books-inventory"
-                                >
-                                    <span className="ml-2">Add items</span>
-                                </Link> : ""}
+                                {user ?
+                                    <Link
+                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                        to="/add-books-inventory"
+                                    >
+                                        <span className="ml-2">Add items</span>
+                                    </Link> : ""}
                             </li>
                             <li className="nav-item">
-                               {user ? 
-                                <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/my-inventories"
-                                >
-                                    <span className="ml-2">My Inventories</span>
-                                </Link> : ""}
+                                {user ?
+                                    <Link
+                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                        to="/my-inventories"
+                                    >
+                                        <span className="ml-2">My Inventories</span>
+                                    </Link> : ""}
                             </li>
 
                             <li className="nav-item">
@@ -99,11 +99,11 @@ function Header() {
                                     <span className="ml-2">Inventory</span>
                                 </Link>
                             </li>
-  
+
 
                             <li className="nav-item">
                                 {user ? <button onClick={() => signOut(auth)}
-                                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                                 >Sign Out
                                 </button>
                                     : <Link

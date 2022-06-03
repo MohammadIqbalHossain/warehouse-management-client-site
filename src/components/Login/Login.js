@@ -110,7 +110,6 @@ const Login = () => {
     const handleResetPassword = async () => {
         await sendPasswordResetEmail(email);
         toast("Check your Email");
-
     }
 
     // console.log(email);
@@ -169,12 +168,7 @@ const Login = () => {
                 </form>
 
                 <div className="flex flex-col justify-center items-center">
-                    <button className="flex items-center border-2 border-black p-3 rounded-lg text-lg hover:bg-[#00CBA9]"
-                        onClick={() => signInWithGoogle()}
-                    >
-                        <FcGoogle className="mx-5 text-2xl" />
-                        Continue with google
-                    </button>
+                    
 
                     {/* <button className="flex items-center border-2 border-black p-3 rounded-lg text-lg hover:bg-[#00CBA9] my-5">
                         <AiFillGithub className="mx-5 text-2xl" />

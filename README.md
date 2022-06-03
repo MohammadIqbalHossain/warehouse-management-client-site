@@ -34,4 +34,7 @@ This is a library website for sellig the newest book as whole, our custumers are
 - Cliking on the Deleverd button will reduce the quantity of the book.
 - cliking on the add item  will take you to the page that is for addinga book into database.
 - My Inventories route on ly shows your added books. 
-- Jwt token added with just sign in method. 
+- Jwt token added with just sign in method.
+
+
+- Thank you!
