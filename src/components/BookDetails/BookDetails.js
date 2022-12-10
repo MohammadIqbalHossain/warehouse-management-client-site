@@ -16,7 +16,7 @@ const BookDetails = () => {
 
 
     useEffect(() => {
-        const url = `https://pure-basin-35880.herokuapp.com/book/${bookId}`;
+        const url = `https://warehouse-management-server-site.vercel.app/book/${bookId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setBook(data))
@@ -25,7 +25,7 @@ const BookDetails = () => {
 
     const handleQuantity = (id) => {
         console.log("clicked");
-        axios.put(`https://pure-basin-35880.herokuapp.com/book/update/${id}`)
+        axios.put(`https://warehouse-management-server-site.vercel.app/book/update/${id}`)
         if (book.quantity <= 0) {
             toast("Sold");
         }
@@ -43,16 +43,11 @@ const BookDetails = () => {
             toast("Please enter a vlaid number")
         }
         else {
-            axios.put(`https://pure-basin-35880.herokuapp.com/stock/${bookId}`, { quantity })
+            axios.put(`https://warehouse-management-server-site.vercel.app/stock/${bookId}`, { quantity })
 
         }
 
     }
-
-
-
-
-
 
     return (
         <div>

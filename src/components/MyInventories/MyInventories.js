@@ -9,11 +9,11 @@ const MyInventories = () => {
     console.log(myBooks);
     const [user] = useAuthState(auth);
     const email = user?.email;
-    
-   
+
+
     console.log(user);
-    const url = `https://pure-basin-35880.herokuapp.com/books?email=${email}`;
-    // const url = `https://pure-basin-35880.herokuapp.com/books?email=${email}`
+    const url = `https://warehouse-management-server-site.vercel.app/books?email=${email}`;
+    // const url = `https://warehouse-management-server-site.vercel.app/books?email=${email}`
     console.log(url);
 
     useEffect(() => {
@@ -30,15 +30,15 @@ const MyInventories = () => {
 
     }, [user])
 
-    if(!myBooks.length < 0){
+    if (!myBooks.length < 0) {
         return <Spinner />
     }
-   
+
 
     const handleDeleteItem = id => {
         const confirmation = window.confirm("Are you sure?");
         if (confirmation) {
-            const url = `https://pure-basin-35880.herokuapp.com/book/${id}`
+            const url = `https://warehouse-management-server-site.vercel.app/book/${id}`
             console.log(url)
             fetch(url, {
                 method: "DELETE"
@@ -54,7 +54,7 @@ const MyInventories = () => {
         }
     }
 
-   
+
     return (
         <div>
             {

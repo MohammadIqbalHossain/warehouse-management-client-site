@@ -86,7 +86,7 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password);
         console.log(email);
 
-        const url = `https://pure-basin-35880.herokuapp.com/login`
+        const url = `https://warehouse-management-server-site.vercel.app/login`
         fetch(url, {
             method: 'POST',
             headers: {
@@ -168,7 +168,7 @@ const Login = () => {
                 </form>
 
                 <div className="flex flex-col justify-center items-center">
-                    
+
 
                     {/* <button className="flex items-center border-2 border-black p-3 rounded-lg text-lg hover:bg-[#00CBA9] my-5">
                         <AiFillGithub className="mx-5 text-2xl" />

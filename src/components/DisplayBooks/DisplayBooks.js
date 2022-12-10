@@ -13,7 +13,6 @@ const DisplayBooks = ({ books }) => {
     const { book, supplier, price, quantity, des, picture, _id } = books;
    
    
-
     return (
         <div className="mx-auto h-[650px]  p-5 border-2 border-gray-200 hover:shadow-xl relative">
             <img className="w-[200px] h-[300px] inline-block" src={picture} alt="" />

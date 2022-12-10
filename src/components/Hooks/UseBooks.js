@@ -5,7 +5,7 @@ const useBooks = () => {
 
 
     useEffect(() => {
-        fetch('https://pure-basin-35880.herokuapp.com/book')
+        fetch('https://warehouse-management-server-site.vercel.app/book')
             .then(res => res.json())
             .then(data => setBooks(data))
 
