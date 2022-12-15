@@ -6,7 +6,7 @@ const AddBooksInventory = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data)
-        const url = `https://warehouse-management-server-site.vercel.app/book`;
+        const url = `https://warehouse-management-server.up.railway.app/book`;
         fetch(url, {
             method: 'POST',
             headers: {

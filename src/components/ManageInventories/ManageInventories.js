@@ -9,7 +9,7 @@ const ManageInventories = () => {
     const handleDeleteItem = id => {
         const confirmation = window.confirm("Are you sure?");
         if (confirmation) {
-            const url = `  https://warehouse-management-server-site.vercel.app/book/${id}`
+            const url = `  https://warehouse-management-server.up.railway.app/book/${id}`
             fetch(url, {
                 method: "DELETE"
             })

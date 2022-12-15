@@ -86,7 +86,7 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password);
         console.log(email);
 
-        const url = `https://warehouse-management-server-site.vercel.app/login`
+        const url = `https://warehouse-management-server.up.railway.app/login`
         fetch(url, {
             method: 'POST',
             headers: {

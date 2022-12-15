@@ -6,7 +6,7 @@ const useBooks = () => {
 
 
     useEffect(() => {
-        fetch('https://warehouse-management-server-site.vercel.app/book')
+        fetch('https://warehouse-management-server.up.railway.app/book')
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [])
