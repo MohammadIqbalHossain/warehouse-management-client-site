@@ -12,8 +12,8 @@ const MyInventories = () => {
 
 
     console.log(user);
-    const url = `https://warehouse-management-server.up.railway.app/books?email=${email}`;
-    // const url = `https://warehouse-management-server.up.railway.app/books?email=${email}`
+    const url = `https://warehouse-management-server-site-production-5e2c.up.railway.app/books?email=${email}`;
+    // const url = `https://warehouse-management-server-site-production-5e2c.up.railway.app/books?email=${email}`
     console.log(url);
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const MyInventories = () => {
     const handleDeleteItem = id => {
         const confirmation = window.confirm("Are you sure?");
         if (confirmation) {
-            const url = `https://warehouse-management-server.up.railway.app/book/${id}`
+            const url = `https://warehouse-management-server-site-production-5e2c.up.railway.app/book/${id}`
             console.log(url)
             fetch(url, {
                 method: "DELETE"
