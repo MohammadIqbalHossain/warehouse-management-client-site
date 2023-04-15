@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify'
-import { async } from '@firebase/util';
+// import { async } from '@firebase/util'; Never used value.
 import avatar from '../../images/avatar.svg'
 
 const BookDetails = () => {
     const { bookId } = useParams();
-    console.log(bookId)
+    // console.log(bookId)
     const [book, setBook] = useState({});
-    console.log(book.quantity)
+    // console.log(book.quantity)
 
     const [count, setNewCount] = useState({})
-    console.log(count);
+    // console.log(count);
 
 
     useEffect(() => {
