@@ -6,7 +6,7 @@ const AddBooksInventory = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data)
-        const url = `https://warehouse-management-server-site-production-5e2c.up.railway.app/book`;
+        const url = `warehouse-management-server-site-production.up.railway.app/book`;
         fetch(url, {
             method: 'POST',
             headers: {

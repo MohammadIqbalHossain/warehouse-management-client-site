@@ -16,7 +16,7 @@ const BookDetails = () => {
 
 
     useEffect(() => {
-        const url = `https://warehouse-management-server-site-production-5e2c.up.railway.app/book/${bookId}`;
+        const url = `warehouse-management-server-site-production.up.railway.app/book/${bookId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setBook(data))
@@ -25,7 +25,7 @@ const BookDetails = () => {
 
     const handleQuantity = (id) => {
         console.log("clicked");
-        axios.put(`https://warehouse-management-server-site-production-5e2c.up.railway.app/book/update/${id}`)
+        axios.put(`warehouse-management-server-site-production.up.railway.app/book/update/${id}`)
         if (book.quantity <= 0) {
             toast("Sold");
         }
@@ -43,7 +43,7 @@ const BookDetails = () => {
             toast("Please enter a vlaid number")
         }
         else {
-            axios.put(`https://warehouse-management-server-site-production-5e2c.up.railway.app/stock/${bookId}`, { quantity })
+            axios.put(`warehouse-management-server-site-production.up.railway.app/stock/${bookId}`, { quantity })
 
         }
 
@@ -59,7 +59,7 @@ const BookDetails = () => {
 
 
                         <div className="flex justify-center">
-                            <img className=" transform hover:scale-105 transition duration-700 ease-out" src={book.picture} width="300" height="300" alt="Details About Books" />
+                            <img className="transform hover:scale-105 transition duration-700 ease-out" src={book.picture} width="300" height="300" alt="Details About Books" />
                         </div>
                         <div>
                             <header>

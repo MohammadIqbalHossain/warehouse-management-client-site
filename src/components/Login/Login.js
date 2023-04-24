@@ -86,7 +86,7 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password);
         console.log(email);
 
-        const url = `https://warehouse-management-server-site-production-5e2c.up.railway.app/login`
+        const url = `warehouse-management-server-site-production.up.railway.app/login`
         fetch(url, {
             method: 'POST',
             headers: {
