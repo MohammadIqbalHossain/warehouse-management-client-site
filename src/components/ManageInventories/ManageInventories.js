@@ -9,7 +9,7 @@ const ManageInventories = () => {
     const handleDeleteItem = id => {
         const confirmation = window.confirm("Are you sure?");
         if (confirmation) {
-            const url = `  warehouse-management-server-site-production.up.railway.app/book/${id}`
+            const url = `https://warehouse-management-server-site-production.up.railway.app/book/${id}`
             fetch(url, {
                 method: "DELETE"
             })
