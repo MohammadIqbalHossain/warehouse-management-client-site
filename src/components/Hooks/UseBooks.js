@@ -6,7 +6,7 @@ const useBooks = () => {
     console.log(books);
 
     useEffect(() => {
-        fetch('https://warehouse-management-server-site-production.up.railway.app/book')
+        fetch('https://warehouse-management-o6pi.onrender.com/book')
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [])

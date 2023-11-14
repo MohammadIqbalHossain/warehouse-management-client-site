@@ -1,9 +1,9 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import axios from 'axios';
-import { toast } from 'react-toastify'
+import { toast } from 'react-toastify';
 // import { async } from '@firebase/util'; Never used value.
-import avatar from '../../images/avatar.svg'
+import avatar from '../../images/avatar.svg';
 
 const BookDetails = () => {
     const { bookId } = useParams();
@@ -16,7 +16,7 @@ const BookDetails = () => {
 
 
     useEffect(() => {
-        const url = `https://warehouse-management-server-site-production.up.railway.app/book/${bookId}`;
+        const url = `https://warehouse-management-o6pi.onrender.com/book/${bookId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setBook(data))
@@ -25,7 +25,7 @@ const BookDetails = () => {
 
     const handleQuantity = (id) => {
         console.log("clicked");
-        axios.put(`https://warehouse-management-server-site-production.up.railway.app/book/update/${id}`)
+        axios.put(`https://warehouse-management-o6pi.onrender.com/book/update/${id}`)
         if (book.quantity <= 0) {
             toast("Sold");
         }
@@ -43,7 +43,7 @@ const BookDetails = () => {
             toast("Please enter a vlaid number")
         }
         else {
-            axios.put(`https://warehouse-management-server-site-production.up.railway.app/stock/${bookId}`, { quantity })
+            axios.put(`https://warehouse-management-o6pi.onrender.com/stock/${bookId}`, { quantity })
 
         }
 

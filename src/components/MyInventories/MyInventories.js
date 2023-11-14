@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { MdDelete } from 'react-icons/md';
-import Spinner from '../Spinner/Spinner'
 import auth from '../../firebase.init';
+import Spinner from '../Spinner/Spinner';
 
 const MyInventories = () => {
     const [myBooks, setMyBooks] = useState([]);
@@ -12,8 +12,8 @@ const MyInventories = () => {
 
 
     console.log(user);
-    const url = `https://warehouse-management-server-site-production.up.railway.app/books?email=${email}`;
-    // const url = `https://warehouse-management-server-site-production.up.railway.app/books?email=${email}`
+    const url = `https://warehouse-management-o6pi.onrender.com/books?email=${email}`;
+    // const url = `https://warehouse-management-o6pi.onrender.com/books?email=${email}`
     console.log(url);
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const MyInventories = () => {
     const handleDeleteItem = id => {
         const confirmation = window.confirm("Are you sure?");
         if (confirmation) {
-            const url = `https://warehouse-management-server-site-production.up.railway.app/book/${id}`
+            const url = `https://warehouse-management-o6pi.onrender.com/book/${id}`
             console.log(url)
             fetch(url, {
                 method: "DELETE"

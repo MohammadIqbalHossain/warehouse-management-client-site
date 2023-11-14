@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import avatar from '../../images/avatar.svg'
-import { FaUserAlt } from 'react-icons/fa';
-import { BsFillLockFill } from 'react-icons/bs';
-import { FcGoogle } from 'react-icons/fc';
-import { AiFillGithub } from 'react-icons/ai';
-import './Login.css';
-import auth from '../../firebase.init'
+import React, { useState } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { async } from '@firebase/util';
+import { BsFillLockFill } from 'react-icons/bs';
+import { FaUserAlt } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
+import avatar from '../../images/avatar.svg';
 import Spinner from '../Spinner/Spinner';
+import './Login.css';
 
 const Login = () => {
 
@@ -86,7 +83,7 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password);
         console.log(email);
 
-        const url = `https://warehouse-management-server-site-production.up.railway.app/login`
+        const url = `https://warehouse-management-o6pi.onrender.com/login`
         fetch(url, {
             method: 'POST',
             headers: {

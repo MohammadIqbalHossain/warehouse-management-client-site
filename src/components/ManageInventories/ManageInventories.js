@@ -1,7 +1,7 @@
 import React from 'react';
-import useBooks from '../Hooks/UseBooks';
 import { MdDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import useBooks from '../Hooks/UseBooks';
 
 const ManageInventories = () => {
     const [books, setBooks] = useBooks()
@@ -9,7 +9,7 @@ const ManageInventories = () => {
     const handleDeleteItem = id => {
         const confirmation = window.confirm("Are you sure?");
         if (confirmation) {
-            const url = `https://warehouse-management-server-site-production.up.railway.app/book/${id}`
+            const url = `https://warehouse-management-o6pi.onrender.com/book/${id}`
             fetch(url, {
                 method: "DELETE"
             })
